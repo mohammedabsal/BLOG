@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f2ea;
+  --foreground: #101114;
+  --card: rgba(255, 255, 255, 0.72);
+  --muted: #5d6470;
+  --border: rgba(16, 17, 20, 0.12);
+  --accent: #0f766e;
+  --accent-2: #2563eb;
+  --shadow: 0 24px 80px rgba(16, 17, 20, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-space-grotesk);
+}
+
+html.dark {
+  --background: #070b14;
+  --foreground: #f5f7fb;
+  --card: rgba(12, 18, 31, 0.72);
+  --muted: #a9b2c3;
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #34d399;
+  --accent-2: #60a5fa;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.14), transparent 32%),
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.16), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent 24%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.2);
+}
+
+.glass-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.section-anchor {
+  scroll-margin-top: 6rem;
+}
+
+.motion-card {
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.motion-card:hover {
+  transform: translateY(-4px);
+}
+
+.float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+.fade-up {
+  animation: fade-up 700ms ease-out both;
+}
+
+.fade-in {
+  animation: fade-in 800ms ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
